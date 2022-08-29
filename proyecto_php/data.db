@@ -1,0 +1,63 @@
+CREATE DATABASE Biblioteca; 
+use BIBLIOTECA;
+CREATE TABLE usuario(
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(20) NOT NULL,
+    apellido VARCHAR (30) NOT NULL,
+    cantlib INTEGER,
+    telefono VARCHAR(20) NOT NULL,
+    email VARCHAR(50)
+);
+
+CREATE TABLE LIBROS(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(50) NOT NULL,
+    stock INT NOT NULL,
+    descripcion VARCHAR(70),
+    id_usuario INT UNSIGNED
+);
+drop table libros;
+
+CREATE TABLE usuarios (
+	id INT UNSIGNED NOT NULL PRIMARY KEY auto_increment,
+    nombre VARCHAR(20),
+    apellido VARCHAR(20),
+    contraseña VARCHAR(20)
+);
+drop table usuarios;
+
+select * from usuarios;
+
+INSERT INTO usuarios (nombre,apellido,contraseña) VALUES ('ro', '$apellido','$contraseña');
+
+DeSCRIBE LIBROS;
+
+select titulo,stock,descripcion from libros;
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE cuentas (
+    id INTEGER UNSIGNED PRIMARY KEY,
+    saldo DECIMAL(11,2) CHECK (saldo >= 0)
+);
+
+INSERT INTO cuentas VALUES (1, 1000);
+INSERT INTO cuentas VALUES (2, 2000);
+INSERT INTO cuentas VALUES (3, 0);
+
+select * from cuentas;
+
+START TRANSACTION;
+UPDATE cuentas SET saldo = saldo - 100 WHERE id = 1;
+UPDATE cuentas SET saldo = saldo + 100 WHERE id = 2;
+COMMIT;
